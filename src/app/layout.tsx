@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "./ClientWrapper"; // Adjust the import path accordingly
-import { ThemeProvider } from "@/components/ThemeProvider";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,17 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <ClientWrapper>
         <body className={inter.className}>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-            <h1 className=" items-center justify-center bg-gray-700 flex text-white w-full p-5  font-semibold">
-              &copy;2024. All rights reserved
-            </h1>
-          </ThemeProvider>
+          {children}
+          <h1 className=" items-center justify-center bg-gray-700 flex text-white w-full p-5  font-semibold">
+            &copy;2024. All rights reserved
+          </h1>
         </body>
       </ClientWrapper>
     </html>
