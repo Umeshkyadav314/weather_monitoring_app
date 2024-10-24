@@ -18,7 +18,7 @@ A weather application built using **TypeScript**, **React**, **ShadCN UI**, and 
 - **OpenWeatherMap API**: To fetch weather data.
 - **CSS**: For custom styles.
 - **React Icons**: To include various icons in the UI.
-- **Clerk ** : User authentication 
+- **Clerk** : User authentication 
 ### Prerequisites
 
 - Node.js (version 14 or higher)
