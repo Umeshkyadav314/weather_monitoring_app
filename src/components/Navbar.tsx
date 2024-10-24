@@ -1,6 +1,12 @@
 /** @format */
 "use client";
-
+import {
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/nextjs";
 import React from "react";
 import { MdOutlineLocationOn, MdWbSunny } from "react-icons/md";
 import { MdMyLocation } from "react-icons/md";
@@ -9,6 +15,7 @@ import { useState } from "react";
 import axios from "axios";
 import { loadingCityAtom, placeAtom } from "@/app/atom";
 import { useAtom } from "jotai";
+
 
 
 type Props = { location?: string };
@@ -88,21 +95,21 @@ export default function Navbar({ location }: Props) {
   }
   return (
     <>
-      <nav className="shadow-sm  sticky top-0 left-0 z-50 bg-white">
+      <nav className="shadow-sm  sticky top-0 left-0 z-50 bg-gray-500">
         <div className="h-[80px]     w-full    flex   justify-between items-center  max-w-7xl px-3 mx-auto">
           <p className="flex items-center justify-center gap-2  ">
-            <h2 className="text-gray-700 text-3xl">Home</h2>
+            <h2 className=" text-3xl text-white  font-sans font-semibold">🌞Weather</h2>
           </p>
-          {/*  */}
           
           <section className="flex gap-2 items-center">
+          
             <MdMyLocation
               title="Your Current Location"
               onClick={handleCurrentLocation}
-              className="text-2xl  text-gray-400 hover:opacity-80 cursor-pointer"
+              className="text-2xl  text-white hover:opacity-80 cursor-pointer"
             />
             <MdOutlineLocationOn className="text-3xl" />
-            <p className="text-slate-900/80 text-sm"> {location} </p>
+            <p className="text-white text-sm"> {location} </p>
             <div className="relative hidden md:flex">
               {/* SearchBox */}
 
@@ -140,8 +147,11 @@ export default function Navbar({ location }: Props) {
               error
             }}
           />
+          
         </div>
+        
       </section>
+      
     </>
   );
 }
@@ -175,7 +185,14 @@ function SuggetionBox({
           ))}
         </ul>
       )}
-      
+      <div className="text-white justify-center items-center p-1 ml-5  font-sans font-semibold text-xl">
+      <SignedOut>
+              <SignInButton mode="modal" />
+            </SignedOut>
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+          </div>
     </>
     
   );

@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "./ClientWrapper"; // Adjust the import path accordingly
+import { ClerkProvider } from "@clerk/nextjs";
+import Home from "./page";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,15 +18,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <ClientWrapper>
-        <body className={inter.className}>
-          {children}
-          <h1 className=" items-center justify-center bg-gray-700 flex text-white w-full p-5  font-semibold">
-            &copy;2024. All rights reserved
-          </h1>
-        </body>
-      </ClientWrapper>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <ClientWrapper>
+          <body className={inter.className}>
+            {children}
+            <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center text-white bg-gray-700 h-50 p-5">
+              <h3>&copy;2024 All right reserved.</h3>
+            </footer>
+          </body>
+        </ClientWrapper>
+      </html>
+    </ClerkProvider>
   );
 }
