@@ -28,10 +28,10 @@ A weather application built using **TypeScript**, **React**, **ShadCN UI**, and 
 
 ![Alt text](images/s1.png)
 ![Alt text](images/s2.png)
-![Alt text](images/s3.png)
 ![Alt text](images/s4.png)
+![Alt text](images/s3.png)
 ![Alt text](images/s5.png)
-![Alt text](images/s6.png)
+
 
 ### Installation
 
